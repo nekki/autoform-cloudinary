@@ -1,15 +1,26 @@
 <template name="afCloudinary">
   <div class="afCloudinary">
-    {{#if url}}
-      <div class="afCloudinary-thumbnail">
-        <a href="{{url}}" target="_blank"><img src="{{url}}"></a>
-      </div>
-      <a href="#" class="js-remove">Remove</a>
+    {{#if currentUser}}
+        {{#if url}}
+          <div class="afCloudinary-thumbnail">
+            <a href="{{url}}" target="_blank"><img src="{{url}}"></a>
+          </div>
+          <a href="#" class="js-remove">Remove</a>
+        {{else}}
+          <button
+            type="button">
+            Browse
+          </button>
+        {{/if}}
     {{else}}
-      <button
-        type="button">
-        Browse
-      </button>
+      {{#if url}}
+          <div class="afCloudinary-thumbnail">
+            <a href="{{url}}" target="_blank"><img src="{{url}}"></a>
+          </div>
+
+        {{else}}
+          <div></div>
+        {{/if}}
     {{/if}}
     <input
       name="file"
